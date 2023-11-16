@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+  margin: 0; 
+  padding: 0;
+}
+
+html {
+  font-size: 67.5%;
+}
+
+body {
+  background: #333;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(22, 20, 20);
+  background-image: url('./imgs/drink-1870139_640.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.hidden {
+  display: none;
+  content: '';
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 6rem;
+  color: white;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  border-radius: .4rem;
+  background-color: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(1px);
+  padding: 1rem;
+}
+
+.input-container input {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  width: 27rem;
+  padding: .2rem 1rem;
+  border-radius: .5rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: black;
+  backdrop-filter: blur(1px);
+  text-transform: capitalize;
+}
+
+.input-container input::placeholder {
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.input-container button {
+  all: initial;
+  background: none;
+}
+
+.input-container i {
+  font-size: 4rem;
+  color: magenta;
+  margin-left: .5rem;
+}
+
+.input-container i:hover {
+  color: red;
+}
+
+.output-container {
+  display: flex;
+  min-width: 35rem;
+  padding: 1rem;
+}
+
+.drinkBtn {
+  font-size: 2.2rem;
+  color: black;
+  border-radius: .8rem;
+  margin: .25rem; 
+  border: none;
+  padding: .35rem 1rem;
+  cursor: pointer;
+  background: none;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(1px);
+}
+
+.drinkBtn:hover {
+  color: magenta;
+  background: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(1px);
+}
+
+/* Individual Drink Styles */
+/* Container for single drink return */
+.drink-display {
+  display: flex;
+  flex-direction: column;
+  margin: .5rem 10rem;
+  padding: 0 2rem;
+}
+
+.drink-display-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drink-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.fa-heart {
+  margin-left: 1rem;
+  cursor: pointer;
+  font-size: 3rem;
+  color: magenta;
+}
+
+.fa-heart:hover {
+  color: red;
+}
+
+/* Container for details & media divs*/
+.drink-body {
+  display: flex;
+  /* display: column; */
+  flex-wrap: wrap;
+  font-family: Arial, Helvetica, sans-serif;
+  /* background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(1px); */
+}
+.background {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(1px);
+}
+
+/* container for details instructions */
+.drink-text {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.drink-details,
+.drink-instructions {
+  color: black;
+  font-size: 1.6rem;
+}
+
+.img {
+  margin-top: 1rem;
+  max-height: 15rem;
+  border: black 1px solid;
+  border-radius: 8px;
+  box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.5);
+  margin: 1rem 0;
+}
+
+.like {
+  all: initial;
+  font-size: 2rem;
+  color: magenta;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: red 1px solid; */
+  padding: 1rem;
+}
+
+iframe {
+  border: black 1px solid;
+  box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.5);
+  margin: .9rem 0;
+}

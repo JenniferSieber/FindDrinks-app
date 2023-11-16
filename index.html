@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/1a261dd86e.js" crossorigin="anonymous"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="style.css">
+  <title>Drink Finder</title>
+    
+  <script defer src="index.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <main>
+      <section class="drink-search-container">
+        <header class="header">
+          <h1>Drink Finder</h1>
+        </header>
+        <div class="search-container">
+          <div class="input-container">
+            <div>
+              <input type="text" value="" placeholder="drink or main ingredient..." id="drinkInput">
+            </div>
+            <div>
+              <button class="find">
+                <span><i class="fas fa-cocktail"></i></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="output-container">
+        <div class="drink-choices-container">
+            <div id="buttonSection" class="drinks-btn-container">
+              <!-- dynamic drink option btns from API -->
+            </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="drink-display hidden">
+      <div class="drink-body">
+        <div class="drink-text">
+          <div class="drink-display-header">
+            <div><h2 class="drink-title"></h2></div>
+            <div><button class="like hidden"><i class="fa-solid fa-heart hidden"></i></button></div>
+          </div>
+          <div class="img-container">
+            <img src="" alt=""  class="img hidden">
+          </div>
+          <div>
+            <h3 class="drink-details"></h3>
+            <p class="drink-instructions"></p>
+          </div>
+          <div class="drink-media">
+            <div class="video-container">
+              <iframe class="hidden" width="460" height="260" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encripted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
