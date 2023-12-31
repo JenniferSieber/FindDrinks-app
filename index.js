@@ -1,8 +1,8 @@
-// array of objects that will dynamically empty and fill based on user input and info received from api
+// Array of objects that will dynamically empty and fill based on user input and info received from api
 let chosenDrinksArr = null
-// output of search
+// Output of search
 const buttonSection = document.getElementById('buttonSection');
-// drink details output
+// Drink details output
 const drinkDisplayBox = document.querySelector('.drink-display')
 const title = document.querySelector('.drink-title')
 const like = document.querySelector('.like')
@@ -14,18 +14,18 @@ const img = document.querySelector('.img')
 const iframe = document.querySelector('iframe')
 let drinkObj = []
 
-// remove previous search results btns
+// Remove previous search results btns
 function clearButtons() {
   while (buttonSection.firstChild) {
     buttonSection.removeChild(buttonSection.firstChild)
   }
 }
 
-// drink search event
+// Drink search event
 buttonSection.addEventListener('click', (event) => {
   if (event.target.classList.contains('drinkBtn')) {
-    const drinkName = event.target.getAttribute('data-drinkName');
-    const drinkIndex = event.target.getAttribute('data-drinkIndex');
+    const drinkName = event.target.getAttribute('data-drinkName')
+    const drinkIndex = event.target.getAttribute('data-drinkIndex')
 
     // Assign drinkChoiceObject via user selection from drinks list array
     let drinkChoiceToDisplay = chosenDrinksArr[drinkIndex]
@@ -33,12 +33,12 @@ buttonSection.addEventListener('click', (event) => {
   }
 });
 
-// get drinks List from API based on user input-find
+// Get drinks List from API based on user input-find
 function getDrinks() {
-  // get user input
+  // Get user input
   const choice = document.querySelector('input').value
 
-  //reset browser clear drink btns and prior drink displays
+  //Reset browser clear drink btns and prior drink displays
   clearButtons() 
   drinkDisplayBox.classList.add('hidden')
   drinkDisplayBox.classList.remove('background')
@@ -52,7 +52,7 @@ function getDrinks() {
   details.textContent = ''
   instruct.textContent = ''
 
-  // assign API for fetch
+  // Assign API for fetch
   let url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${choice}`
   fetch(url)
     .then(res => res.json())
@@ -65,8 +65,8 @@ function getDrinks() {
         let drinkName = drink.strDrink
         const drinkBtn = document.createElement('button')
         drinkBtn.classList.add('drinkBtn')
-        drinkBtn.setAttribute('data-drinkName', drinkName);
-        drinkBtn.setAttribute('data-drinkIndex', i);
+        drinkBtn.setAttribute('data-drinkName', drinkName)
+        drinkBtn.setAttribute('data-drinkIndex', i)
         drinkBtn.textContent = drinkName
         buttonSection.appendChild(drinkBtn)   
       })     
@@ -75,12 +75,12 @@ function getDrinks() {
       console.log(`Error: ${err}`)
     })    
 }
-//listener for user initial drink find calls getDrinks Fn
+// Listener for user initial drink find calls getDrinks Fn
 document.querySelector('.find').addEventListener('click', getDrinks)
 
-// display drinkInfo selection from drink list btns displayed
+// Display drinkInfo selection from drink list btns displayed
 function displayDrinkInfo(drink) {
-  //remove the btns
+  // Remove the btns
   clearButtons()
   drinkObj.push(drink)
   // dynamically display drink header chosen
@@ -91,16 +91,15 @@ function displayDrinkInfo(drink) {
   heart.classList.remove('hidden')
   // check if api has video on the selectied drink-if so dynamically display by embedding to browser
   if (drink.strVideo !== null) {
-    // get id at end of provided link to use with embed url
+    // Get id at end of provided link to use with embed url
     let videoId = drink.strVideo.match(/(?:\?|&)v=([a-zA-Z0-9_-]{11})/)
     let embedUrl = `https://www.youtube.com/embed/${videoId[1]}`
-    // console.log(embedUrl)
     iframe.classList.remove('hidden')
     iframe.setAttribute('src', embedUrl)
    }
-   // dynamically display drink instructions
+   // Dynamically display drink instructions
   instruct.textContent = `Instructions: ${drink.strInstructions}`
-   // check if api has image(s) for the drink -dynamically display if available
+   // Check if api has image(s) for the drink -dynamically display if available
   if (drink.strDrinkThumb) {
     const imgUrl = `${drink.strDrinkThumb}`
     img.classList.remove('hidden')
@@ -109,7 +108,7 @@ function displayDrinkInfo(drink) {
     console.log('Image not found', drink)
   }
   details.textContent = `This ${drink.strAlcoholic.toLowerCase()} beverage is served in a ${drink.strGlass.toLowerCase()}.`
-  // reset the drinks array for next search
-  chosenDrinksArr = null 
+  // Reset the drinks array for next search
+  chosenDrinksArr = null
 }
 
